@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    padding: 10px 0;
+    text-align: center;
+    background-color: greenyellow;
+}
+
+.container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container-grid{
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+img{
+    width: 175px;
+}

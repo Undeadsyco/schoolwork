@@ -1,0 +1,11 @@
+{
+  "name": "typescript-sandbox",
+  "version": "1.0.0",
+  "description": "a sand box for texting typescript code",
+  "main": "script.js",
+  "scripts": {
+    "start": "tsc && node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

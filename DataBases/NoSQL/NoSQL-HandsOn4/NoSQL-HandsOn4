@@ -1,0 +1,17 @@
+db.cars.deleteMany({})
+
+db.cars.createIndex({ price: 1 })
+
+db.cars.createIndex({ used: 1 })
+
+db.cars.find({ year: { $lt: 2012 } });
+db.cars.deleteMany({ year: { $lt: 2012 } })
+
+db.cars.deleteOne({ make: "BMW" })
+
+
+
+db.cars.createIndex({ make: 1 });
+db.cars.dropIndex( 'price_1' );
+db.cars.find({ make: "Volkswagen" });
+db.cars.deleteMany({ make: "Volkswagens" });

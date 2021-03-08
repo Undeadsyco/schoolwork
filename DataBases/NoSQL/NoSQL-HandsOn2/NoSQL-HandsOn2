@@ -1,0 +1,44 @@
+db.movies.find({ 
+    lengthInMin: { $gte: 120 } 
+})
+
+db.movies.find({ 
+    leadActors: { $ne: "Tom Hanks" } 
+})
+
+db.movies.find({ 
+    director: { $eq: "Mel Brooks" } 
+})
+
+db.movies.find({ 
+    genre: { $ne: "Drama" } 
+})
+
+db.movies.find(
+    { $and: [ 
+            { lengthInMin: { $gte: 90 } }, 
+            { lengthInMin: { $lte: 120 } } 
+    ]}
+)
+
+db.movies.find(
+    { $or: [ 
+            { genre: { $eq: "Action" } }, 
+            { genre: { $eq: "Adventure" } } 
+    ]},
+    { title: 1 }
+)
+
+db.movies.find(
+    {$and: [
+        { leadActors:{ $not: { $eq: "Jodie Foster" }}},
+        { $or: [ 
+            { genre: { $not: { $eq: "foreign" } } }, 
+            { genre: { $eq: "comedies" } }, 
+            { genre: { $eq: "horror" } }, 
+            { genre: { $eq: "thriller" } }, 
+            { genre: { $eq: "drama" } },
+        ]},
+        { lengthInMin: { $lt: 120 } },
+    ]
+})

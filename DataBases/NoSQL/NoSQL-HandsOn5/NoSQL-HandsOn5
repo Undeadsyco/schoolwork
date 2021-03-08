@@ -1,0 +1,271 @@
+db.employees.insertMany([
+    {
+        firstName: "Alison",
+        lastName: "Davidson",
+        birthday: "04/05/75",
+        address: { street: "874 W. Oak Place", city: "Gary", state: "Indiana"},
+        position: { title: "Customer Support", remote: true, fullTime: true }
+    },
+    { 
+        firstName: "Henry", 
+        lastName: "Chapelton",
+        birthday: "09/29/80" ,
+        address: { street: "9324 E. Vista Way", city: "Tempe", state: "Arizona" },
+        position: { title: "Customer Support", remote: false, fullTime: true }
+    },
+    { 
+        firstName: "Alex", 
+        lastName: "Miller",
+        birthday: "11/22/83",
+        address: { street: "244 Price Road", city: "Mesa", state: "Arizona" },
+        position: { title: "Customer Support", remote: false, fullTime: false }
+    },
+    { 
+        firstName: "Clarly", 
+        lastName: "Nielson",
+        birthday: "08/04/87",
+        address: { street: "678 W. Westward Road", city: "Phoenix", state: "Arizona" },
+        position: { title: "Office Manager", remote: false, fullTime: true }
+    },
+    { 
+        firstName: "Tom", 
+        lastName: "Talbot",
+        birthday: "12/30/89",
+        address: { street: "12 Oakland Way", city: "Chandler", state: "Arizona" },
+        position: { title: "Inventory Manager", remote: true, fullTime: true }
+    },
+    { 
+        firstName: "Mary", 
+        lastName: "Crawley",
+        birthday: "07/06/80",
+        address: { street: "1010 Granite Way", city: "Charlotte", state: "North Carolina" },
+        position: { title: "Human Resources", remote: true, fullTime: true }
+    },
+    { 
+        firstName: "Daisy", 
+        lastName: "Baxter",
+        birthday: "09/09/87",
+        address: { street: "990 E. 84th St.", city: "Tempe", state: "Arizona" },
+        position: { title: "CEO", remote: false, fullTime: true }
+    },
+    { 
+        firstName: "William", 
+        lastName: "Coyle",
+        birthday: "10/11/91",
+        address: { street: "944 W. 16th St.", city: "Phoenix", state: "Arizona" },
+        position: { title: "Intern", remote: false, fullTime: false }
+    },
+    { 
+        firstName: "Edith", 
+        lastName: "Bates",
+        birthday: "07/28/90",
+        address: { street: "7 E. 20th Pl.", city: "Chandler", state: "Arizona" },
+        position: { title: "Customer Support", remote: false, fullTime: true }
+    },
+    { 
+        firstName: "Gwen", 
+        lastName: "Harding" ,
+        birthday: "10/11/86",
+        address: { street: "234 W. 48th St.", city: "Phoenix", state: "Arizona" },
+        position: { title: "Office Assistent", remote: false, fullTime: true }
+    }
+])
+
+db.employees.updateOne(
+    { firstName: "Alison" },
+    { $set: {  
+        'address.street': "777 E. 1st St. #120",
+        'address.city': "Tempe",
+    } }
+);
+db.employees.updateOne(
+    { firstName: "Mary" },
+    { $set: {
+        'address.street': "8322 W. Vista Pl.",
+        'address.city': "Scottsdale"
+    }}
+);
+db.employees.updateMany(
+    {},
+    { $unset: { 'address.state': "", 'position.remote': "" } }
+);
+db.employees.createIndex({ position: 1 });
+
+
+db.songs.insertMany([
+    {
+        songId: 1,
+        title: "Girls Just Want To Have Fun",
+        details: {
+            artist: "Cyndi Lauper",
+            album: "She's So Unusual",
+            releaseYear: 1983
+        }
+    },
+    {
+        songId: 2,
+        title: "Hips Don't Lie",
+        details: {
+            artist: "Shakira feat. Wyclef Jean",
+            album: "Oral Fixation Vol.2",
+            releaseYear: 2006
+        }
+    },
+    {
+        songId: 3,
+        title: "Poker Face",
+        details: {
+            artist: "Lady Gaga",
+            album: "The Fame",
+            releaseYear: 2008
+        }
+    },
+    {
+        songId: 4,
+        title: "Wannabe",
+        details: {
+            artist: "Spice Girls",
+            album: "Spice",
+            releaseYear: 1996
+        }
+    },
+    {
+        songId: 5,
+        title: "Califonia Gurls",
+        details: {
+            artist: "Katy Perry feat. Snoop Dog",
+            album: "Teenage Dream",
+            releaseYear: 2010
+        }
+    },
+    {
+        songId: 6,
+        title: "Bye, Bye, Bye",
+        details: {
+            artist: "NSYNC",
+            album: "No Strings Attached",
+            releaseYear: 2000
+        }
+    },
+    {
+        songId: 7,
+        title: "I Will Always Love You",
+        details: {
+            artist: "Whitney Houston",
+            album: "I Will Always Love You: The Best Of Whitney Houston",
+            releaseYear: 2012
+        }
+    },
+    {
+        songId: 8,
+        title: "Baby One More Time",
+        details: {
+            artist: "Britney Spears",
+            album: "Baby One More Time",
+            releaseYear: 1999
+        }
+    },
+    {
+        songId: 9,
+        title: "Vogue",
+        details: {
+            artist: "Madonna",
+            album: "I'm Breathlass",
+            releaseYear: 1990
+        }
+    },
+    {
+        songId: 10,
+        title: "Rolling in the deep",
+        details: {
+            artist: "Adele",
+            album: "21",
+            releaseYear: "2011"
+        }
+    },
+    {
+        songId: 11,
+        title: "1234",
+        details: {
+            artist: "Feist",
+            album: "The Reminder",
+            releaseYear: 2007
+        }
+    },
+    {
+        songId: 12,
+        title: "Elastic Heart",
+        details: {
+            artist: "Sia",
+            album: "The Hunger Games: Catching Fire Soundtrack",
+            releaseYear: 2015
+        }
+    },
+    {
+        songId: 13,
+        title: "Oops! I did It Again",
+        details: {
+            artist: "Britney Spears",
+            album: "Oops! I did it Again",
+            releaseYear: 2000
+        }
+    },
+    {
+        songId: 14,
+        title: "Bad Romance",
+        details: {
+            artist: "Lady Gaga",
+            album: "The Fame Monster",
+            releaseYear: 2009
+        }
+    },
+    {
+        songId: 15,
+        title: "Lose Control",
+        details: {
+            artist: "Missy Elliot",
+            album: "The Cookbook",
+            releaseYear: 2005 
+        }
+    },
+    {
+        songId: 16,
+        title: "U Can't Touch This",
+        details: {
+            artist: "MC Hammer",
+            album: "Please Hammer, Don't Hurt 'Em",
+            releaseYear: 1990
+        }
+    },
+    {
+        songId: 17,
+        title: "Thriller",
+        details: {
+            artist: "Michael Jackson",
+            album: "Thriller",
+            releaseYear: 1982
+        }
+    },
+    {
+        songId: 18,
+        title: "Single Ladies",
+        details: {
+            artist: "Beyonce",
+            album: "I am... Sasha Fierce",
+            releaseYear: 2008
+        }
+    },
+    {
+        songId: 19,
+        title: "Rhythm Nation",
+        details: {
+            artist: "Janet Jackson",
+            album: "Janet Jackson's Rhythm Nation 1814",
+            releaseYear: 1989
+        }
+    }
+]);
+db.songs.updateMany(
+    {},
+    { $rename: { title: 'songTitle', 'details.artist': 'artist' }}
+);

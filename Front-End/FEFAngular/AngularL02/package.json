@@ -1,0 +1,9 @@
+{
+    "name": "angularl02",
+    "version": "1.0.0",
+    "description": "a prject for testing typescript",
+    "main": "index.js",
+    "scripts": {
+        "start": "tsc && node index.js"
+    }
+}

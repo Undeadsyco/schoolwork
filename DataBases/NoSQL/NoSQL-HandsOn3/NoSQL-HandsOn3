@@ -1,0 +1,64 @@
+db.inventory.updateOne(
+    { "item": "journal" },
+    { $set: { 'size.h': 16 } },
+    { upsert: true }
+)
+
+db.inventory.updateMany(
+    { "status": "D" },
+    { $set: { "qty": 50 } },
+    { upsert: true }
+)
+
+db.inventory.updateOne(
+    { "item": "paper" },
+    { $set: { "rating": "4 stars" }},
+    { upsert: true }
+);
+db.inventory.updateOne(
+    { "item": "paper" },
+    { $set: { "status": "A" }},
+    { upsert: true }
+)
+
+db.inventory.updateMany(
+    {},
+    { $rename: { 
+        'size.h': "size.height", 
+        'size.w': 'size.width' 
+    } }
+)
+
+db.inventory.updateOne(
+    { "item": "spiral notebook" },
+    { $inc: { "size.height": 2, "size.width": 2 } } 
+)
+
+db.inventory.updateMany(
+    { $or: [
+        { "item": "paper" },
+        { "item": "day planner" }
+    ]},
+    { $mul: { "quantity": 2 } }
+)
+
+db.inventory.updateMany(
+    { $not: { "rating": "4 stars"} },
+    { $set: { "rating.hasBeenRated": false } },
+    { upsert: true}
+)
+
+db.inventory.updateMany(
+    {},
+    { $set: { "rating": {hasBeenRated: true, numberOfStars: "4 stars" } } },
+    {upsert: true}
+);
+db.inventory.updateMany(
+    {},
+    { $mul: { quantity: 2 } }
+);
+db.inventory.updateMany(
+    { "size.uom": "cm" },
+    { $set: { "status": "B" } },
+    { upsert: true}
+)

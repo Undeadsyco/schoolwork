@@ -1,0 +1,9 @@
+<h1>List Of Users</h1>
+
+<ul>
+    {{#each users}}
+    <a href="http://localhost:3000/users/{{UserId}}">
+        <li>{{FirstName}} {{LastName}}, {{Username}}</li>
+    </a>
+    {{/each}}
+</ul>
